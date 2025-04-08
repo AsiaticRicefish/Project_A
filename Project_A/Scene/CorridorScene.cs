@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project_A.GameObjects;
 
 namespace Project_A.Scene
 {
@@ -11,6 +12,8 @@ namespace Project_A.Scene
         private ConsoleKey input;
         private string[] mapData;
         private bool[,] map;
+
+        private List<Interaction> gameObjects;
 
         public CorridorScene()
         {
@@ -33,8 +36,13 @@ namespace Project_A.Scene
                 }
                 Console.WriteLine();
             }
+
+            gameObjects = new List<Interaction>();
+            gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'①', new Position(1, 3)));
+
+
             Game.Player.position = new Position(1, 3);
-            Game.Player.map = map; // 플레이어에게 맵 이
+            Game.Player.map = map;
         }
 
         public override void Render()
@@ -46,6 +54,11 @@ namespace Project_A.Scene
             //}
 
             PrintMap();
+
+            foreach (Interaction interaction in gameObjects) // 모든 게임 오브젝트 맵에 그리기
+            {
+                interaction.Print();
+            }
 
             Game.Player.Print();  // 플레이어 출력
         }
@@ -59,6 +72,15 @@ namespace Project_A.Scene
         }
         public override void Result()
         {
+
+            foreach(Interaction interaction in gameObjects)
+            {
+                if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
+                {
+                    interaction.Interact(Game.Player);
+                }
+            }
+
 
         }     
 
