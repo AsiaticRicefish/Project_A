@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Project_A.Scene;
@@ -14,6 +15,9 @@ namespace Project_A
         private static BaseScene curScene;
 
         private static bool gameOver;
+
+        private static Player player;
+        public static Player Player { get { return player; } }
 
         public static void Run()
         {
@@ -36,6 +40,27 @@ namespace Project_A
         public static void ChangeScene (string sceneName) // 장면 전환을 위한 함수 구현
         {
             curScene = sceneDic[sceneName];
+        }
+
+        public static void GameOver(string reason)
+        {
+            Console.Clear();
+            Console.WriteLine("**********************************");
+            Console.WriteLine("*         사망하셨습니다.        *");
+            Console.WriteLine("**********************************");
+            Console.WriteLine();
+            Console.WriteLine(reason);
+
+            gameOver = true;
+        }
+
+        public static void PrintInfo()
+        {
+            Console.WriteLine("**********************************");
+            Console.WriteLine(" 플레이어");
+            Console.WriteLine(" 힘 : {0}\t 속도 : {1}", player.Power, player.Speed);
+            Console.WriteLine("**********************************");
+            Console.WriteLine();
         }
 
         public static void Start()
