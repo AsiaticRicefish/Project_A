@@ -8,13 +8,11 @@ namespace Project_A.Scene
 {
     public class BedEnding1Scene : BaseScene
     {
-  
-
         public override void Render()
         {
             Util.Print("이 병원 간호사의 일기장인 모양이다", ConsoleColor.White, 3000);
             Util.Print("일기장을 천천히 읽어보았다", ConsoleColor.White, 3000);
-            Util.Print("다들 나를 못잡아먹어서 안달이야...", ConsoleColor.White, 3000);
+            Util.Print("\"다들 나를 못잡아먹어서 안달이야...\"", ConsoleColor.White, 3000);
             Console.Clear();
             Util.Print("모두 다 죽었으면 좋겠다", ConsoleColor.Red, 5000);
             Console.Clear();
