@@ -34,13 +34,7 @@ namespace Project_A.Scene
 
         public override void Result()
         {
-            if (gameEnd)
-            {
-                Console.Clear();
-                Console.WriteLine("Text RPG게임을 종료합니다.");
-                Environment.Exit(0);
-            }
-
+           
             switch (input)
             {
                 case ConsoleKey.D1:
@@ -50,7 +44,14 @@ namespace Project_A.Scene
                     gameEnd = true;
                     break;
             }
-            
+
+            if (gameEnd)
+            {
+                Console.Clear();
+                Console.WriteLine("게임을 종료합니다.");
+                Environment.Exit(0);
+            }
+
         }
 
      
