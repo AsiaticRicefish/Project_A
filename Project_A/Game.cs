@@ -65,7 +65,11 @@ namespace Project_A
 
         public static void Start()
         {
+            Console.CursorVisible = false;
+
             gameOver = false;
+
+            player = new Player();
 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
@@ -75,6 +79,7 @@ namespace Project_A
             sceneDic.Add("BadEnding1", new BedEnding1Scene());
 
             curScene = sceneDic["Title"];
+
         }
 
         public static void End() 
