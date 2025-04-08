@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project_A.GameObjects;
+using Project_A.Items;
 
 namespace Project_A.Scene
 {
@@ -42,6 +43,7 @@ namespace Project_A.Scene
             gameObjects = new List<Interaction>();
             gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'①', new Position(1, 3)));
             gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, 'ⓓ', new Position(9, 4)));
+            gameObjects.Add(new Flashlight(ConsoleColor.Magenta, '★', new Position(9, 1)));
 
 
            
@@ -76,6 +78,14 @@ namespace Project_A.Scene
             }
 
             Game.Player.Print();  // 플레이어 출력
+            
+            
+            Console.SetCursorPosition(0, map.GetLength(0) + 2);
+            Game.PrintInfo();
+
+            Console.SetCursorPosition(0, map.GetLength(0) + 8);
+            Game.Player.inventory.PrintAll();
+           
         }
         public override void Input()
         {
@@ -93,6 +103,11 @@ namespace Project_A.Scene
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
                     interaction.Interact(Game.Player);
+                    if (interaction.oneOffItems == true)
+                    {
+                        gameObjects.Remove(interaction);
+                    }
+                    break;
                 }
             }
 

@@ -61,10 +61,10 @@ namespace Project_A
 
         public static void PrintInfo()
         {
-            Console.WriteLine("**********************************");
+            Console.WriteLine("*****************************");
             Console.WriteLine(" 플레이어");
-            Console.WriteLine(" 힘 : {0}\t 속도 : {1}", player.Power, player.Speed);
-            Console.WriteLine("**********************************");
+            Console.WriteLine(" 속도 : {0}\t 시야 : {1}", player.Speed, player.View);
+            Console.WriteLine("*****************************");
             Console.WriteLine();
         }
 

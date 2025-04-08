@@ -10,7 +10,7 @@ namespace Project_A.GameObjects
     {
         private string scenes;
 
-        public Place(string scenes, ConsoleColor color, char symbol, Position position) : base(color, symbol, position)
+        public Place(string scenes, ConsoleColor color, char symbol, Position position) : base(color, symbol, position, false)
         {
             this.scenes = scenes;
         }

@@ -11,12 +11,14 @@ namespace Project_A
         public ConsoleColor color; // 상호작용 부분 표현 색
         public char symbol; // 상호작용 부분 표현 글자
         public Position position;
+        public bool oneOffItems; // 일회성 소모형 아이템
 
-        public Interaction(ConsoleColor color, char symbol, Position position)
+        public Interaction(ConsoleColor color, char symbol, Position position, bool oneOffItems)
         {
             this.color = color;
             this.symbol = symbol;
             this.position = position;
+            this.oneOffItems = oneOffItems;
         }
 
         public void Print()

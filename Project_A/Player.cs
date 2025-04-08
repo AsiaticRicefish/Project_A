@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,44 @@ namespace Project_A
     {
         // 이동 기능
         public Position position;
+        public Inventory inventory;
         public bool[,] map;  // 플레이어가 맵을 뚫고 지나가는 부분을 처리
+
+        public int maxSpeed;
+        public int maxView;
+
+        private int speed;
+        public int Speed { get { return speed; } set { speed = value; } }
+
+        private int view;
+        public int View { get { return view; } set { view = value; } }
+
+        public Player()
+        {
+            inventory = new Inventory();
+            maxSpeed = 100;
+            maxView = 100;
+            speed = 10;
+            view = 10;
+        }
+
+        public void PlayerSpeed(int amount)
+        {
+            speed += amount;
+            if (speed > maxSpeed) 
+            {
+                speed = maxSpeed;
+            }
+        }
+
+        public void PlayerView(int amount)
+        {
+            view += amount;
+            if (view > maxView)
+            {
+                view = maxView;
+            }
+        }
 
         public void Print()
         {
@@ -50,12 +88,5 @@ namespace Project_A
             }
 
         }
-
-
-        private int power;
-        public int Power { get { return power; } set { power = value; } }
-
-        private int speed;
-        public int Speed { get { return speed; } set { speed = value; } }
     }
 }
