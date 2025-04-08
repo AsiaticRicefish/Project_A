@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_A.Scene
 {
-    public class Util  // 게임의 극적인 연출을 위한 설정
+    public static class Util
     {
         public static void Print(string context, ConsoleColor textColor, int delay = 0)
         {
@@ -14,6 +14,13 @@ namespace Project_A.Scene
             Console.WriteLine(context);
             Thread.Sleep(delay);
             Console.ResetColor();
+        }
+
+        public static void PressAnyKey(string text)
+        {
+            Console.WriteLine(text);
+            Console.WriteLine("계속하려면 아무키나 누르세요");
+            Console.ReadKey(true);
         }
 
     }

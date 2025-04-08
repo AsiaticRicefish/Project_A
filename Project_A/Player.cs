@@ -11,7 +11,8 @@ namespace Project_A
     {
         // 이동 기능
         public Position position;
-        public Inventory inventory;
+        private Inventory inventory;
+        public Inventory Inventory { get { return inventory; } }
         public bool[,] map;  // 플레이어가 맵을 뚫고 지나가는 부분을 처리
 
         public int maxSpeed;
@@ -35,7 +36,7 @@ namespace Project_A
         public void PlayerSpeed(int amount)
         {
             speed += amount;
-            if (speed > maxSpeed) 
+            if (speed > maxSpeed)
             {
                 speed = maxSpeed;
             }
@@ -50,12 +51,37 @@ namespace Project_A
             }
         }
 
+
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine('⊙');
             Console.ResetColor();
+        }
+
+
+        public void Action(ConsoleKey input)
+        {
+            switch (input)
+            {
+                case ConsoleKey.W:
+                case ConsoleKey.UpArrow:
+
+                case ConsoleKey.S:
+                case ConsoleKey.DownArrow:
+
+                case ConsoleKey.A:
+                case ConsoleKey.LeftArrow:
+
+                case ConsoleKey.D:
+                case ConsoleKey.RightArrow:
+                    Move(input);
+                    break;
+                case ConsoleKey.I:
+                    inventory.Open();
+                    break;
+            }
         }
 
         public void Move(ConsoleKey input) // 캐릭터 움직임 구현
@@ -88,5 +114,11 @@ namespace Project_A
             }
 
         }
+       
+
+        }
+
+
+
     }
-}
+

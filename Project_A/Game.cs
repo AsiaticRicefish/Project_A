@@ -63,7 +63,7 @@ namespace Project_A
         {
             Console.WriteLine("*****************************");
             Console.WriteLine(" 플레이어");
-            Console.WriteLine(" 속도 : {0}\t 시야 : {1}", player.Speed, player.View);
+            Console.WriteLine(" 속도 : {0}\t 시야 : {1}", Player.Speed, Player.View);
             Console.WriteLine("*****************************");
             Console.WriteLine();
         }

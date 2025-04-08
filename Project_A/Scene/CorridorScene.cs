@@ -84,7 +84,7 @@ namespace Project_A.Scene
             Game.PrintInfo();
 
             Console.SetCursorPosition(0, map.GetLength(0) + 8);
-            Game.Player.inventory.PrintAll();
+            Game.Player.Inventory.PrintAll();
            
         }
         public override void Input()
@@ -94,6 +94,7 @@ namespace Project_A.Scene
         public override void Update()
         {
             Game.Player.Move(input); // 입력한 키에 따라 움직일 수 있도록 구현
+            Game.Player.Action(input);
         }
         public override void Result()
         {
@@ -110,8 +111,6 @@ namespace Project_A.Scene
                     break;
                 }
             }
-
-
         }     
 
         private void PrintMap()

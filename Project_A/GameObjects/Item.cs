@@ -19,7 +19,7 @@ namespace Project_A.GameObjects
 
         public override void Interact(Player player)
         {
-            player.inventory.AddItem(this);
+            player.Inventory.AddItem(this);
         }
 
         public abstract void Use();
