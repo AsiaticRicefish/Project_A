@@ -13,6 +13,7 @@ namespace Project_A
 
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+        public static string prevSceneName;
 
         private static bool gameOver;
 
@@ -39,7 +40,11 @@ namespace Project_A
 
         public static void ChangeScene (string sceneName) // 장면 전환을 위한 함수 구현
         {
+            prevSceneName = curScene.name;
+
+            curScene.Exit();
             curScene = sceneDic[sceneName];
+            curScene.Enter();
         }
 
         public static void GameOver(string reason)
@@ -77,6 +82,7 @@ namespace Project_A
             sceneDic.Add("Corridor", new CorridorScene());
             sceneDic.Add("Room1", new HospitalRoom1Scene());
             sceneDic.Add("BadEnding1", new BedEnding1Scene());
+            sceneDic.Add("TwoCorridor", new TwoCorridorScene());
 
             curScene = sceneDic["Title"];
 

@@ -11,6 +11,11 @@ namespace Project_A.Scene
     {
         private ConsoleKey input;
 
+        public HospitalScene() 
+        {
+            name = "Hospital";
+        }
+
         public override void Render()
         {
             Console.WriteLine("당신은 낡은 병원에서 깨어났습니다.");

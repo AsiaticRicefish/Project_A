@@ -7,7 +7,7 @@ using Project_A.GameObjects;
 
 namespace Project_A.Scene
 {
-    public class CorridorScene : BaseScene
+    public class TwoCorridorScene : BaseScene
     {
         private ConsoleKey input;
         private string[] mapData;
@@ -15,19 +15,21 @@ namespace Project_A.Scene
 
         private List<Interaction> gameObjects;
 
-        public CorridorScene()
+
+        public TwoCorridorScene()
         {
-            name = "Corridor";
+
+            name = "TwoCorridor";
 
             mapData = new string[]
-            {
+           {
             "■■■■■■■■■■■■",
             "■          ■",
-            "■          ■",
+            "■■■■■  ■■■■■",
             "■          ■",
             "■          ■ ",
-            "■■■■■■■■■■■■", 
-            };
+            "■■■■■■■■■■■■",
+           };
 
             map = new bool[6, 12];
             for (int y = 0; y < map.GetLength(0); y++)
@@ -40,68 +42,56 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'①', new Position(1, 3)));
-            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, 'ⓓ', new Position(9, 4)));
-
-
-           
+            gameObjects.Add(new Place("Hospital", ConsoleColor.DarkBlue, '②', new Position(1, 1)));
+            gameObjects.Add(new Place("Corridor", ConsoleColor.DarkGreen, 'ⓤ', new Position(9, 4)));
+        
         }
 
         public override void Enter()
         {
-            if (Game.prevSceneName == "Room1" || Game.prevSceneName == "Hospital")
-            {
-                Game.Player.position = new Position(1, 3);
-            }
-            else if (Game.prevSceneName == "TwoCorridor")
+            if (Game.prevSceneName == "Corridor")
             {
                 Game.Player.position = new Position(9, 4);
             }
-                Game.Player.map = map;
+           
+            Game.Player.map = map;
         }
 
         public override void Render()
         {
-            //for (int i = 0; i < 15; i++) // 깜빡거리는 연출 넣기
-            //{
-            //    Util.Print("복도로 나서자, 조명이 깜빡거린다...", ConsoleColor.White, 100);
-            //    Console.Clear();
-            //}
-
             PrintMap();
 
-            foreach (Interaction interaction in gameObjects) // 모든 게임 오브젝트 맵에 그리기
+            foreach (Interaction interaction in gameObjects)
             {
                 interaction.Print();
             }
 
-            Game.Player.Print();  // 플레이어 출력
+            Game.Player.Print();
         }
+
         public override void Input()
         {
             input = Console.ReadKey(true).Key;
-        }      
+        }
+
         public override void Update()
         {
-            Game.Player.Move(input); // 입력한 키에 따라 움직일 수 있도록 구현
+            Game.Player.Move(input);
         }
         public override void Result()
         {
-
-            foreach(Interaction interaction in gameObjects)
+            foreach (Interaction interaction in gameObjects)
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
                     interaction.Interact(Game.Player);
                 }
             }
-
-
-        }     
+        }
 
         private void PrintMap()
         {
-            Console.SetCursorPosition(0, 0); // 처음으로 위치시킴
+            Console.SetCursorPosition(0, 0);
 
             for (int y = 0; y < map.GetLength(0); y++)
             {
@@ -111,7 +101,7 @@ namespace Project_A.Scene
                     {
                         Console.Write(' ');
                     }
-                    else 
+                    else
                     {
                         Console.Write('■');
                     }

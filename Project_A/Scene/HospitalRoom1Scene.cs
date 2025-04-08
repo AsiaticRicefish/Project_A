@@ -10,6 +10,10 @@ namespace Project_A.Scene
     {
         private ConsoleKey input;
 
+        public HospitalRoom1Scene() 
+        {
+            name = "Room1";
+        }
         public override void Render()
         {
             Console.WriteLine("침대 밑에서 피투성이 일기장을 발견했습니다.");
