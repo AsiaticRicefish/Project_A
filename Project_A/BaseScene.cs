@@ -12,7 +12,5 @@ namespace Project_A
         public abstract void Input();
         public abstract void Update();
         public abstract void Result();
-
-
     }
 }

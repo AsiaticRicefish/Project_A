@@ -17,18 +17,22 @@ namespace Project_A
 
         public static void Run()
         {
+            Start();
+
             while (gameOver == false)
             {
+                Console.Clear(); // 지워주는 기능
+
                 curScene.Render();
                 curScene.Input();
                 curScene.Update();
                 curScene.Result();
             }
 
+            End();
         }
 
-
-        private static void Start()
+        public static void Start()
         {
             gameOver = false;
 
