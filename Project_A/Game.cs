@@ -17,6 +17,7 @@ namespace Project_A
 
         public static void Run()
         {
+
             Start();
 
             while (gameOver == false)
@@ -32,15 +33,23 @@ namespace Project_A
             End();
         }
 
+        public static void ChangeScene (string sceneName) // 장면 전환을 위한 함수 구현
+        {
+            curScene = sceneDic[sceneName];
+        }
+
         public static void Start()
         {
             gameOver = false;
 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
+            sceneDic.Add("Hospital", new HospitalScene());
+            sceneDic.Add("Corridor", new CorridorScene());
+            sceneDic.Add("Room1", new HospitalRoom1Scene());
+            sceneDic.Add("BadEnding1", new BedEnding1Scene());
 
             curScene = sceneDic["Title"];
-
         }
 
         public static void End() 

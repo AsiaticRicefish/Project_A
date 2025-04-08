@@ -30,7 +30,7 @@ namespace Project_A.Scene
 
         public override void Result()
         {
-            
+            Game.ChangeScene("Hospital");
         }
 
      
