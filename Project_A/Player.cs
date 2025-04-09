@@ -15,48 +15,39 @@ namespace Project_A
         public Inventory Inventory { get { return inventory; } }
         public bool[,] map;  // 플레이어가 맵을 뚫고 지나가는 부분을 처리
 
-        public int maxSpeed;
-        public int maxView;
 
-        private int speed;
-        public int Speed { get { return speed; } set { speed = value; } }
+        private bool flashLight;
+        public bool Flashlight { get { return flashLight; } set { flashLight = value; } }
 
-        private int view;
-        public int View { get { return view; } set { view = value; } }
+
+        private bool exitKey;
+        public bool ExitKey { get { return exitKey; } set { exitKey = value; } }
+
 
         public Player()
         {
             inventory = new Inventory();
-            maxSpeed = 100;
-            maxView = 100;
-            speed = 10;
-            view = 10;
+           
+            exitKey = false;
         }
 
-        public void PlayerSpeed(int amount)
+        public void PlayerFlashlight()
         {
-            speed += amount;
-            if (speed > maxSpeed)
-            {
-                speed = maxSpeed;
-            }
+            flashLight = true;  
         }
 
-        public void PlayerView(int amount)
+        public void PlayerExitKey()
         {
-            view += amount;
-            if (view > maxView)
-            {
-                view = maxView;
-            }
+            exitKey = true;
         }
+       
 
 
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine('⊙');
+            Console.WriteLine('P');
             Console.ResetColor();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Project_A.GameObjects;
@@ -17,7 +18,8 @@ namespace Project_A.Items
 
         public override void Use()
         {
-           
+            Game.Player.PlayerExitKey();
         }
+
     }
 }

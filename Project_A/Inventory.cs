@@ -185,17 +185,17 @@ namespace Project_A
 
         public void PrintAll()
         {
-            Console.WriteLine("*****************************");
-            Console.WriteLine(" 현재 가지고 있는 아이템");
+            Console.WriteLine("***************************************************************");
+            Console.WriteLine("● 현재 가지고 있는 아이템");
             if (items.Count == 0)
             {
                 Console.WriteLine(" Empty");
             }
             for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {items[i].name}");
+                Console.WriteLine($"{i + 1}. {items[i].name}\n{items[i].description}");
             }
-            Console.WriteLine("*****************************");
+            Console.WriteLine("***************************************************************");
         }
     }
 }

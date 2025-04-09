@@ -74,9 +74,6 @@ namespace Project_A.Scene
             Game.Player.Print();  // 플레이어 출력
             
             
-            Console.SetCursorPosition(0, map.GetLength(0) + 2);
-            Game.PrintInfo();
-
             Console.SetCursorPosition(0, map.GetLength(0) + 8);
             Game.Player.Inventory.PrintAll();
            
@@ -95,7 +92,7 @@ namespace Project_A.Scene
             foreach(Interaction interaction in gameObjects)
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
-                {
+                {               
                     interaction.Interact(Game.Player);
                     if (interaction.oneOffItems == true)
                     {

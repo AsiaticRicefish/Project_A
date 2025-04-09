@@ -4,15 +4,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Project_A.GameObjects;
 
 namespace Project_A.Scene
 {
-
     public class ExitScene : BaseScene
     {
         public override void Render()
         {
-            Util.Print("나는 죽을 힘들 다해 도망쳤다", ConsoleColor.White, 5000);
+            Util.Print("출입문이 보인다!", ConsoleColor.White, 3000);
+            Util.Print("나는 열쇠로 문을 열고 죽을 힘들 다해 도망쳤다 ", ConsoleColor.White, 5000);
             Console.Clear();
             Util.Print("괴물은 더 이상 따라오지 않았다", ConsoleColor.White, 5000);
             Console.Clear();
@@ -25,11 +26,12 @@ namespace Project_A.Scene
             Console.WriteLine();
             Console.Write("계속하려면 아무키나 누르십시오.");
         }
+
         public override void Input()
         {
             Console.ReadKey(true);
         }
-      
+
         public override void Update()
         {
 
@@ -40,6 +42,6 @@ namespace Project_A.Scene
             Game.GameOver("축하합니다! 탈출에 성공하셨습니다!\n\n엔딩1 : 알수 없는 탈출");
         }
 
-      
+
     }
 }

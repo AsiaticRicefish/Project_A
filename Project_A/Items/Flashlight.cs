@@ -17,8 +17,7 @@ namespace Project_A.Items
 
         public override void Use()
         {
-            Game.Player.PlayerSpeed(10);
-            Game.Player.PlayerView(10);
+            Game.Player.PlayerFlashlight();
         }
     }
 }

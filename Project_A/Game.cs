@@ -60,14 +60,6 @@ namespace Project_A
             gameOver = true;
         }
 
-        public static void PrintInfo()
-        {
-            Console.WriteLine("*****************************");
-            Console.WriteLine(" 플레이어");
-            Console.WriteLine(" 속도 : {0}\t 시야 : {1}", Player.Speed, Player.View);
-            Console.WriteLine("*****************************");
-            Console.WriteLine();
-        }
 
         public static void Start()
         {

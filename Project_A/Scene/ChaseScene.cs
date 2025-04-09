@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project_A.GameObjects;
+using Project_A.Items;
 
 namespace Project_A.Scene
 {
@@ -15,14 +16,10 @@ namespace Project_A.Scene
 
         private List<Interaction> gameObjects;
 
-        static int chaserX = 1;
-        static int chaserY = 1;
-
-
         public ChaseScene()
         {
 
-            name = "ChaseScene";
+            name = "Chase";
 
             mapData = new string[]
            {
@@ -54,11 +51,11 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkBlue, '↓', new Position(1, 5)));
+            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkBlue, ' ', new Position(1, 5)));
             gameObjects.Add(new Place("Exit", ConsoleColor.DarkGreen, '↓', new Position(17, 13)));
-
-
         }
+
+
 
         public override void Enter()
         {
@@ -81,10 +78,7 @@ namespace Project_A.Scene
 
             Game.Player.Print();
 
-            Console.SetCursorPosition(0, map.GetLength(0) + 2);
-            Game.PrintInfo();
-
-            Console.SetCursorPosition(0, map.GetLength(0) + 8);
+            Console.SetCursorPosition(0, map.GetLength(0) + 7);
             Game.Player.Inventory.PrintAll();
         }
 
@@ -103,6 +97,11 @@ namespace Project_A.Scene
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
+                    if (Game.Player.ExitKey == false)
+                    {
+                        Util.Print("열쇠가 필요합니다", ConsoleColor.Red, 1000);
+                        return;
+                    }
                     interaction.Interact(Game.Player);
                 }
             }

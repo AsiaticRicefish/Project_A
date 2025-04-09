@@ -68,9 +68,6 @@ namespace Project_A.Scene
 
             Game.Player.Print();
 
-            Console.SetCursorPosition(0, map.GetLength(0) + 2);
-            Game.PrintInfo();
-
             Console.SetCursorPosition(0, map.GetLength(0) + 8);
             Game.Player.Inventory.PrintAll();
         }

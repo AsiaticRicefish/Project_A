@@ -13,6 +13,8 @@ namespace Project_A.Scene
         private string[] mapData;
         private bool[,] map;
 
+        private Player player;
+
         private List<Interaction> gameObjects;
 
 
@@ -58,12 +60,16 @@ namespace Project_A.Scene
             {
                 Game.Player.position = new Position(1, 1);
             }
+            else if (Game.prevSceneName == "Chase")
+            {
+                Game.Player.position = new Position(9, 1);
+            }
 
-                Game.Player.map = map;
+            Game.Player.map = map;
         }
 
         public override void Render()
-        {
+        {          
             PrintMap();
 
             foreach (Interaction interaction in gameObjects)
@@ -72,9 +78,6 @@ namespace Project_A.Scene
             }
 
             Game.Player.Print();
-
-            Console.SetCursorPosition(0, map.GetLength(0) + 2);
-            Game.PrintInfo();
 
             Console.SetCursorPosition(0, map.GetLength(0) + 8);
             Game.Player.Inventory.PrintAll();
@@ -95,6 +98,11 @@ namespace Project_A.Scene
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
+                    if (Game.Player.Flashlight == false)
+                    {
+                        Util.Print("어두워서 아무것도 보이지 않습니다. 손전등을 사용하십시오!", ConsoleColor.Red, 1000);
+                        return;
+                    }
                     interaction.Interact(Game.Player);
                 }
             }
