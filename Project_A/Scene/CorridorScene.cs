@@ -24,9 +24,9 @@ namespace Project_A.Scene
             {
             "■■■■■■■■■■■■",
             "■          ■",
+            "■■■        ■",
+            "■        ■■■",
             "■          ■",
-            "■          ■",
-            "■          ■ ",
             "■■■■■■■■■■■■", 
             };
 
@@ -41,8 +41,8 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'①', new Position(1, 3)));
-            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, 'ⓓ', new Position(9, 4)));
+            gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'←', new Position(1, 3)));
+            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, '→', new Position(9, 4)));
             gameObjects.Add(new Flashlight(ConsoleColor.Magenta, '★', new Position(9, 1)));
 
 
@@ -64,12 +64,6 @@ namespace Project_A.Scene
 
         public override void Render()
         {
-            //for (int i = 0; i < 15; i++) // 깜빡거리는 연출 넣기
-            //{
-            //    Util.Print("복도로 나서자, 조명이 깜빡거린다...", ConsoleColor.White, 100);
-            //    Console.Clear();
-            //}
-
             PrintMap();
 
             foreach (Interaction interaction in gameObjects) // 모든 게임 오브젝트 맵에 그리기
@@ -93,7 +87,6 @@ namespace Project_A.Scene
         }      
         public override void Update()
         {
-            Game.Player.Move(input); // 입력한 키에 따라 움직일 수 있도록 구현
             Game.Player.Action(input);
         }
         public override void Result()

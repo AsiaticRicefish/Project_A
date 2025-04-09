@@ -7,7 +7,7 @@ using Project_A.GameObjects;
 
 namespace Project_A.Scene
 {
-    public class TwoCorridorScene : BaseScene
+    public class ChaseScene : BaseScene
     {
         private ConsoleKey input;
         private string[] mapData;
@@ -15,23 +15,35 @@ namespace Project_A.Scene
 
         private List<Interaction> gameObjects;
 
+        static int chaserX = 1;
+        static int chaserY = 1;
 
-        public TwoCorridorScene()
+
+        public ChaseScene()
         {
 
-            name = "TwoCorridor";
+            name = "ChaseScene";
 
             mapData = new string[]
            {
-            "■■■■■■■■■■■■",
-            "■          ■",
-            "■■■■■  ■■■■■",
-            "■        ■■■",
-            "■          ■",
-            "■■■■■■■■■■■■",
+            "■■■■■■■■■■■■■■■■■■■■",
+            "■  ■       ■       ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■  ■   ■   ■   ■   ■",
+            "■      ■       ■   ■",
+            "■■■■■■■■■■■■■■■■■■■■",
            };
 
-            map = new bool[6, 12];
+            map = new bool[15, 20];
             for (int y = 0; y < map.GetLength(0); y++)
             {
                 for (int x = 0; x < map.GetLength(1); x++)
@@ -42,24 +54,20 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("Room2", ConsoleColor.DarkBlue, '←', new Position(1, 1)));
-            gameObjects.Add(new Place("Corridor", ConsoleColor.DarkGreen, '→', new Position(9, 4)));
-            gameObjects.Add(new Place("Chase", ConsoleColor.DarkGreen, '→', new Position(9, 1)));
+            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkBlue, '↓', new Position(1, 5)));
+            gameObjects.Add(new Place("Exit", ConsoleColor.DarkGreen, '↓', new Position(17, 13)));
+
 
         }
 
         public override void Enter()
         {
-            if (Game.prevSceneName == "Corridor")
+            if (Game.prevSceneName == "TwoCorridor")
             {
-                Game.Player.position = new Position(9, 4);
+                Game.Player.position = new Position(1, 5);
             }
-            else if(Game.prevSceneName == "Room2")
-            {
-                Game.Player.position = new Position(1, 1);
-            }
-
-                Game.Player.map = map;
+           
+            Game.Player.map = map;
         }
 
         public override void Render()
@@ -99,7 +107,6 @@ namespace Project_A.Scene
                 }
             }
         }
-
         private void PrintMap()
         {
             Console.SetCursorPosition(0, 0);

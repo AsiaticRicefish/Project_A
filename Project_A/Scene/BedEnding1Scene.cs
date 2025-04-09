@@ -19,6 +19,7 @@ namespace Project_A.Scene
             Util.Print("갑자기 조명이 꺼진다.", ConsoleColor.Red, 3000);
             Util.Print("\"무슨 일이지?\"", ConsoleColor.White, 3000);
             Util.Print("누군가 다가온다", ConsoleColor.White, 2000);
+            Console.Clear();
             Util.Print("나는 본능적으로 숨었다", ConsoleColor.White, 5000);
             Util.Print("갑자기 배 쪽에 강렬한 통증이 생겼다", ConsoleColor.DarkRed, 2000);
             Util.Print("칼에 찔려있었고 피를 쏟아내며 서서히 의식을 잃었다...", ConsoleColor.DarkRed, 2000);
@@ -38,7 +39,7 @@ namespace Project_A.Scene
         }
         public override void Result()
         {
-            Game.GameOver("수상한 물건을 조사할 때는 신중히 결정하십시오.");
+            Game.GameOver("사망하셨습니다\n\n사망 : 수상한 물건을 조사할 때는 신중히 결정하십시오.");
         }
 
      

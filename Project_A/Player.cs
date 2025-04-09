@@ -112,13 +112,7 @@ namespace Project_A
             {
                 position = targetPos;
             }
-
         }
-       
-
-        }
-
-
-
     }
+}
 

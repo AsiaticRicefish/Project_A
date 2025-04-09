@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project_A.GameObjects;
+using Project_A.Items;
 
 namespace Project_A.Scene
 {
-    public class TwoCorridorScene : BaseScene
+    public class Room2 : BaseScene
     {
+
         private ConsoleKey input;
         private string[] mapData;
         private bool[,] map;
@@ -16,22 +18,21 @@ namespace Project_A.Scene
         private List<Interaction> gameObjects;
 
 
-        public TwoCorridorScene()
+        public Room2()
         {
 
-            name = "TwoCorridor";
+            name = "Room2";
 
             mapData = new string[]
            {
             "■■■■■■■■■■■■",
             "■          ■",
-            "■■■■■  ■■■■■",
-            "■        ■■■",
+            "■■■■    ■■■■",
             "■          ■",
             "■■■■■■■■■■■■",
            };
 
-            map = new bool[6, 12];
+            map = new bool[5, 12];
             for (int y = 0; y < map.GetLength(0); y++)
             {
                 for (int x = 0; x < map.GetLength(1); x++)
@@ -42,26 +43,20 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("Room2", ConsoleColor.DarkBlue, '←', new Position(1, 1)));
-            gameObjects.Add(new Place("Corridor", ConsoleColor.DarkGreen, '→', new Position(9, 4)));
-            gameObjects.Add(new Place("Chase", ConsoleColor.DarkGreen, '→', new Position(9, 1)));
+            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, '→', new Position(9, 3)));
+            gameObjects.Add(new OutsideKey(ConsoleColor.Magenta, '★', new Position(1, 1)));
 
         }
 
         public override void Enter()
         {
-            if (Game.prevSceneName == "Corridor")
+            if (Game.prevSceneName == "TwoCorridor")
             {
-                Game.Player.position = new Position(9, 4);
-            }
-            else if(Game.prevSceneName == "Room2")
-            {
-                Game.Player.position = new Position(1, 1);
+                Game.Player.position = new Position(9, 3);
             }
 
-                Game.Player.map = map;
+            Game.Player.map = map;
         }
-
         public override void Render()
         {
             PrintMap();
@@ -85,10 +80,13 @@ namespace Project_A.Scene
             input = Console.ReadKey(true).Key;
         }
 
+
         public override void Update()
         {
+            Game.Player.Move(input);
             Game.Player.Action(input);
         }
+
         public override void Result()
         {
             foreach (Interaction interaction in gameObjects)
@@ -96,10 +94,14 @@ namespace Project_A.Scene
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
                     interaction.Interact(Game.Player);
+                    if (interaction.oneOffItems == true)
+                    {
+                        gameObjects.Remove(interaction);
+                    }
+                    break;
                 }
             }
         }
-
         private void PrintMap()
         {
             Console.SetCursorPosition(0, 0);

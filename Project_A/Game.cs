@@ -47,11 +47,12 @@ namespace Project_A
             curScene.Enter();
         }
 
+
         public static void GameOver(string reason)
         {
             Console.Clear();
             Console.WriteLine("**********************************");
-            Console.WriteLine("*         사망하셨습니다.        *");
+            Console.WriteLine("*           게임 종료            *");
             Console.WriteLine("**********************************");
             Console.WriteLine();
             Console.WriteLine(reason);
@@ -83,6 +84,9 @@ namespace Project_A
             sceneDic.Add("Room1", new HospitalRoom1Scene());
             sceneDic.Add("BadEnding1", new BedEnding1Scene());
             sceneDic.Add("TwoCorridor", new TwoCorridorScene());
+            sceneDic.Add("Room2", new Room2());
+            sceneDic.Add("Chase", new ChaseScene());
+            sceneDic.Add("Exit", new ExitScene());
 
             curScene = sceneDic["Title"];
 

@@ -153,7 +153,7 @@ namespace Project_A
             {
                 case ConsoleKey.Y:
                     selectItem.Use();
-                    Util.PressAnyKey($"{selectItem.name} 을/를 사용했습니다.");
+                    Util.PressAnyKey($"{selectItem.name} 을/를 사용합니다.");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;
