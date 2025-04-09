@@ -83,6 +83,8 @@ namespace Project_A
             sceneDic.Add("Room2", new Room2());
             sceneDic.Add("Chase", new ChaseScene());
             sceneDic.Add("Exit", new ExitScene());
+            sceneDic.Add("Trap", new TrapScene());
+            sceneDic.Add("Trap2", new TrapScene2());
 
             curScene = sceneDic["Title"];
 

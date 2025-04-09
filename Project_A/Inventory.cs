@@ -147,14 +147,14 @@ namespace Project_A
         private void UseConfirm()
         {
             Item selectItem = items[selectIndex];
-            Console.WriteLine("{0} 을/를 사용하시겠습니까? (Y/N)", selectItem.name);
+            Console.WriteLine("{0}을/를 사용하시겠습니까? (Y/N)", selectItem.name);
 
             ConsoleKey input = Console.ReadKey(true).Key;
             switch (input)
             {
                 case ConsoleKey.Y:
                     selectItem.Use();
-                    Util.PressAnyKey($"{selectItem.name} 을/를 목에 겁니다");
+                    Util.PressAnyKey($"{selectItem.name}을/를 목에 겁니다");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;
@@ -167,13 +167,13 @@ namespace Project_A
         private void DropConfirm()
         {
             Item selectItem = items[selectIndex];
-            Console.WriteLine("{0} 을/를 버리시겠습니까? (Y/N)", selectItem.name);
+            Console.WriteLine("{0}을/를 버리시겠습니까? (Y/N)", selectItem.name);
 
             ConsoleKey input = Console.ReadKey(true).Key;
             switch (input)
             {
                 case ConsoleKey.Y:
-                    Util.PressAnyKey($"{selectItem.name} 을/를 버렸습니다.");
+                    Util.PressAnyKey($"{selectItem.name}을/를 버렸습니다.");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;

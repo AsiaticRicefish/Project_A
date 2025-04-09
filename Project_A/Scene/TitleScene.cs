@@ -14,7 +14,7 @@ namespace Project_A.Scene
         public override void Render()
         {
             Console.WriteLine("************************************");
-            Console.WriteLine("*        제목을 입력하시오         *");
+            Console.WriteLine("*           병원 탈출하기          *");
             Console.WriteLine("************************************");
             Console.WriteLine("");
             Console.WriteLine("1. 게임시작");

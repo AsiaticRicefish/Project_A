@@ -8,6 +8,21 @@ namespace Project_A.Scene
 {
     public class BedEnding1Scene : BaseScene
     {
+        string[] openBook = new string[]
+       {
+            "              .--.        ",                    
+            "           .\"     \".     ",
+            "         /  ⊙     ‡  \\     ",
+            "        /   ●          \\   ",
+            "       |    ●           |   ",          
+            "       |      ___       |    ",
+            "       |     (___)      |    ",
+            "        \\              /     ",
+            "         \\           /      ",
+            "          `.       .'        ",           
+       };
+
+
         public override void Render()
         {
             Util.Print("이 병원 간호사의 일기장인 모양이다", ConsoleColor.White, 3000);
@@ -19,10 +34,30 @@ namespace Project_A.Scene
             Util.Print("갑자기 조명이 꺼진다.", ConsoleColor.Red, 3000);
             Util.Print("\"무슨 일이지?\"", ConsoleColor.White, 3000);
             Util.Print("누군가 다가온다", ConsoleColor.White, 2000);
-            Util.Print("나는 본능적으로 숨었다", ConsoleColor.White, 5000);
+            Util.Print("나는 본능적으로 숨었다", ConsoleColor.White, 7000);
             Console.Clear();
-            Util.Print("갑자기 배 쪽에 강렬한 통증이 생겼다", ConsoleColor.DarkRed, 2000);
-            Util.Print("칼에 찔려있었고 피를 쏟아내며 서서히 의식을 잃었다...", ConsoleColor.DarkRed, 2000);
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            foreach (string line in openBook)
+            {
+                Console.WriteLine(line);
+            }
+            Console.ResetColor();
+
+            Console.WriteLine();
+            Util.Print("으악!!!!!!!!!!!!", ConsoleColor.White, 5000);
+            Console.Clear();
+            Util.Print("그 상태에서 바로 칼에 찔렸다", ConsoleColor.DarkRed, 5000);
+            Console.Clear();
+            Util.Print("나는 피를 쏟아내며 서서히 의식을 잃었다...", ConsoleColor.DarkRed, 5000);
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            foreach (string line in openBook)
+            {
+                Console.WriteLine(line);
+            }
+            Console.ResetColor();
 
             Console.WriteLine();
             Console.Write("계속하려면 아무키나 누르십시오.");
@@ -39,7 +74,7 @@ namespace Project_A.Scene
         }
         public override void Result()
         {
-            Game.GameOver("사망하셨습니다\n\n사망 : 수상한 물건을 조사할 때는 신중히 결정하십시오.");
+            Game.GameOver("사망하셨습니다...\n\n사망 : 수상한 물건을 조사할 때는 신중히 결정하십시오.");
         }
 
      
