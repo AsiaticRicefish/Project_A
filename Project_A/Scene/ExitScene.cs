@@ -14,19 +14,19 @@ namespace Project_A.Scene
         {
             Util.Print("나는 조심스럽게 문을 열었다", ConsoleColor.White, 5000);
             Console.Clear();
-            Util.Print("출입문이 보인다!", ConsoleColor.White, 3000);
+            Util.Print("출입문이 보인다!", ConsoleColor.Blue, 3000);
             Console.Clear();
             Util.Print("여기서 대체 무슨 일이 있었던 걸까?", ConsoleColor.White, 5000);
             Console.Clear();
             Util.Print("나는 왜 여기서 깨어났던 것일까?", ConsoleColor.DarkRed, 5000);
             Console.Clear();
-
-            Console.Write("계속하려면 아무키나 누르십시오.");
+            Util.Print("많은 의문이 들었지만 나는 나갈 수 밖에 없었다", ConsoleColor.White, 5000);
+            Console.Clear();
         }
 
         public override void Input()
         {
-            Console.ReadKey(true);
+
         }
 
         public override void Update()

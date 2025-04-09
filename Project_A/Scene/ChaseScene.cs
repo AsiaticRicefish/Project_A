@@ -76,7 +76,7 @@ namespace Project_A.Scene
             "■■■■■ ■■■ ■ ■■■■■■■■■■■ ■■■ ■ ■ ■ ■ ■■■■■■■■■ ■ ■ ■■■■■ ■ ■■■ ■ ■    ■",
             "■   ■ ■     ■       ■     ■ ■ ■   ■ ■ ■       ■   ■ ■ ■   ■ ■ ■     ■■",
             "■ ■ ■ ■■■■■■■ ■■■■■ ■ ■■■■■ ■ ■ ■ ■ ■■■■■ ■ ■■■ ■ ■■■ ■ ■ ■ ■ ■■■■■  ■",
-            "■ ■   ■     ■   ■   ■   ■   ■   ■ ■ ■ ■     ■ ■ ■         ■ ■ ■     ■■",
+            "■ ■   ■     ■   ■   ■   ■   ■   ■ ■ ■ ■     ■ ■ ■         ■ ■       ■■",
             "■ ■■■■■ ■■■ ■■■ ■ ■■■■■ ■ ■ ■■■ ■■■ ■■■ ■ ■ ■■■■■■■ ■■■■■■■■■■■ ■    ■",
             "■ ■     ■ ■ ■   ■       ■ ■   ■   ■     ■   ■ ■ ■     ■             ■■",
             "■ ■ ■■■■■ ■ ■ ■ ■■■ ■■■ ■■■■■■■ ■■■■■ ■■■■■ ■■■■■■■ ■■■ ■■■■■■■■■    ■",
@@ -102,8 +102,7 @@ namespace Project_A.Scene
             gameObjects.Add(new Place("Trap2", ConsoleColor.DarkGreen, '?', new Position(50, 3)));
             gameObjects.Add(new Chase(ConsoleColor.DarkRed, '●', new Position(12, 6), false));
             gameObjects.Add(new Chase(ConsoleColor.DarkRed, '●', new Position(20, 7), false));
-            gameObjects.Add(new Chase(ConsoleColor.DarkRed, '●', new Position(62, 7), false));
-            gameObjects.Add(new Chase(ConsoleColor.DarkRed, '●', new Position(64, 8), false));
+            gameObjects.Add(new Chase(ConsoleColor.DarkRed, '●', new Position(68, 9), false));
         }
 
 
