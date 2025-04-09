@@ -86,6 +86,7 @@ namespace Project_A
                     stack.Push("DropMenu");
                     break;
                 case ConsoleKey.D3:
+                case ConsoleKey.Escape:
                     stack.Pop();
                     break;
             }
@@ -153,7 +154,7 @@ namespace Project_A
             {
                 case ConsoleKey.Y:
                     selectItem.Use();
-                    Util.PressAnyKey($"{selectItem.name} 을/를 사용합니다.");
+                    Util.PressAnyKey($"{selectItem.name} 을/를 목에 겁니다");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;

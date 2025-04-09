@@ -13,8 +13,6 @@ namespace Project_A.Scene
         private string[] mapData;
         private bool[,] map;
 
-        private Player player;
-
         private List<Interaction> gameObjects;
 
 
@@ -28,7 +26,7 @@ namespace Project_A.Scene
             "■■■■■■■■■■■■",
             "■          ■",
             "■■■■■  ■■■■■",
-            "■        ■■■",
+            "■          ■",
             "■          ■",
             "■■■■■■■■■■■■",
            };
@@ -79,7 +77,7 @@ namespace Project_A.Scene
 
             Game.Player.Print();
 
-            Console.SetCursorPosition(0, map.GetLength(0) + 8);
+            Console.SetCursorPosition(0, map.GetLength(0) + 2);
             Game.Player.Inventory.PrintAll();
         }
 

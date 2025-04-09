@@ -12,8 +12,8 @@ namespace Project_A.Items
     {
         public OutsideKey(ConsoleColor color, char symbol, Position position) : base(color, symbol, position)
         {
-            name = "정문열쇠";
-            description = "열쇠를 통해 정문으로 나갈 수 있을 수 있을 것이다.";
+            name = "정문 카드키";
+            description = "카드키를 통해 정문으로 나갈 수 있을 수 있을 것이다.";
         }
 
         public override void Use()

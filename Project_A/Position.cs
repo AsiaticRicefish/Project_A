@@ -8,7 +8,7 @@ namespace Project_A
 {
     public struct Position  
     {
-        public int x; public int y; // 위치를 구조체를 통하여 구현
+        public int x; public int y;
 
         public Position(int x, int y)
         {

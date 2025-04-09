@@ -8,6 +8,47 @@ using Project_A.Items;
 
 namespace Project_A.Scene
 {
+    public class Chase : Interaction
+    {
+        public Chase(ConsoleColor color, char symbol, Position position, bool oneOffItems) : base(color, symbol, position, oneOffItems)
+        {
+        }
+
+        public void ChaseMove(Position playerPos, bool[,] map)
+        {
+            int dx = playerPos.x - position.x;
+            int dy = playerPos.y - position.y;
+
+            int chaseX = 0;
+            int chaseY = 0;
+
+            if (Math.Abs(dx) > Math.Abs(dy))
+            {
+                chaseX = Math.Sign(dx);
+            }
+            else
+            {
+                chaseY = Math.Sign(dy);
+            }
+
+            int newX = position.x + chaseX;
+            int newY = position.y + chaseY;
+
+            if (newY >= 0 && newY < map.GetLength(0) && newX >= 0 && newX < map.GetLength(1) &&map[newY, newX]) 
+            {
+                position.x = newX;
+                position.y = newY;
+            }
+
+        }
+
+        public override void Interact(Player player)
+        {
+
+        }
+    }
+
+
     public class ChaseScene : BaseScene
     {
         private ConsoleKey input;
@@ -51,8 +92,8 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkBlue, ' ', new Position(1, 5)));
             gameObjects.Add(new Place("Exit", ConsoleColor.DarkGreen, '↓', new Position(17, 13)));
+            gameObjects.Add(new Chase(ConsoleColor.DarkRed, '∵', new Position(1, 1), false));
         }
 
 
@@ -61,7 +102,7 @@ namespace Project_A.Scene
         {
             if (Game.prevSceneName == "TwoCorridor")
             {
-                Game.Player.position = new Position(1, 5);
+                Game.Player.position = new Position(1, 3);
             }
            
             Game.Player.map = map;
@@ -78,7 +119,7 @@ namespace Project_A.Scene
 
             Game.Player.Print();
 
-            Console.SetCursorPosition(0, map.GetLength(0) + 7);
+            Console.SetCursorPosition(0, map.GetLength(0) + 2);
             Game.Player.Inventory.PrintAll();
         }
 
@@ -90,6 +131,27 @@ namespace Project_A.Scene
         public override void Update()
         {
             Game.Player.Action(input);
+
+            foreach (Interaction interaction in gameObjects)
+            {
+                if (interaction is Chase chaser)
+                {
+                    chaser.ChaseMove(Game.Player.position, map);
+                    Thread.Sleep(1000 / 60);
+
+                    if (chaser.position.x == Game.Player.position.x &&
+                        chaser.position.y == Game.Player.position.y)
+                    {
+                        Console.Clear();
+                        Util.Print("열심히 달렸으나 결국 붙잡혔다.", ConsoleColor.White, 3000);
+                        Console.Clear();
+                        Util.Print("천천히 잡아 먹히며 내 운명을 받아들인다.", ConsoleColor.DarkRed, 5000);
+                        Console.Clear();
+                        Game.GameOver("사망하셨습니다...\n\n사망 : 추격자에게 잡혔습니다!");
+                        return;
+                    }
+                }
+            }
         }
         public override void Result()
         {

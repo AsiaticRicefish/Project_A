@@ -24,10 +24,10 @@ namespace Project_A.Scene
             {
             "■■■■■■■■■■■■",
             "■          ■",
-            "■■■        ■",
-            "■        ■■■",
             "■          ■",
-            "■■■■■■■■■■■■", 
+            "■       ■■■■",
+            "■          ■",
+            "■■■■■■■■■■■■",
             };
 
             map = new bool[6, 12];
@@ -41,12 +41,12 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
-            gameObjects.Add(new Place("Hospital",ConsoleColor.DarkBlue,'←', new Position(1, 3)));
+            gameObjects.Add(new Place("Hospital", ConsoleColor.DarkBlue, '←', new Position(1, 3)));
             gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, '→', new Position(9, 4)));
-            gameObjects.Add(new Flashlight(ConsoleColor.Magenta, '★', new Position(9, 1)));
+            gameObjects.Add(new Flashlight(ConsoleColor.Magenta, '★', new Position(7, 4)));
 
 
-           
+
         }
 
         public override void Enter()
@@ -59,7 +59,7 @@ namespace Project_A.Scene
             {
                 Game.Player.position = new Position(9, 4);
             }
-                Game.Player.map = map;
+            Game.Player.map = map;
         }
 
         public override void Render()
@@ -72,16 +72,16 @@ namespace Project_A.Scene
             }
 
             Game.Player.Print();  // 플레이어 출력
-            
-            
-            Console.SetCursorPosition(0, map.GetLength(0) + 8);
+
+
+            Console.SetCursorPosition(0, map.GetLength(0) + 2);
             Game.Player.Inventory.PrintAll();
-           
+
         }
         public override void Input()
         {
             input = Console.ReadKey(true).Key;
-        }      
+        }
         public override void Update()
         {
             Game.Player.Action(input);
@@ -89,10 +89,10 @@ namespace Project_A.Scene
         public override void Result()
         {
 
-            foreach(Interaction interaction in gameObjects)
+            foreach (Interaction interaction in gameObjects)
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
-                {               
+                {
                     interaction.Interact(Game.Player);
                     if (interaction.oneOffItems == true)
                     {
@@ -101,7 +101,7 @@ namespace Project_A.Scene
                     break;
                 }
             }
-        }     
+        }
 
         private void PrintMap()
         {
@@ -115,7 +115,7 @@ namespace Project_A.Scene
                     {
                         Console.Write(' ');
                     }
-                    else 
+                    else
                     {
                         Console.Write('■');
                     }

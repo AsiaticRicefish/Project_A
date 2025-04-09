@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Project_A.GameObjects;
 using Project_A.Scene;
 
 namespace Project_A
@@ -19,6 +20,9 @@ namespace Project_A
 
         private static Player player;
         public static Player Player { get { return player; } }
+
+        private static Chase chase;
+        public static Chase Chase { get { return chase; } }
 
         public static void Run()
         {
