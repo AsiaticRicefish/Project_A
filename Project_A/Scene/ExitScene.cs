@@ -10,8 +10,10 @@ namespace Project_A.Scene
 {
     public class ExitScene : BaseScene
     {
+
         public override void Render()
         {
+
             Util.Print("나는 조심스럽게 문을 열었다", ConsoleColor.White, 5000);
             Console.Clear();
             Util.Print("출입문이 보인다!", ConsoleColor.Blue, 3000);
