@@ -55,9 +55,20 @@ namespace Project_A
         public static void GameOver(string reason)
         {
             Console.Clear();
-            Console.WriteLine("**********************************");
-            Console.WriteLine("*           게임 종료            *");
-            Console.WriteLine("**********************************");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+    
+            Console.WriteLine(@"
+  ■■■■■■■▒▒▒ ■■■■■   ■■■    ■■■ ■■■■■■■▒    ■■■■■■▒▒ ■■▒▒  ■■ ■■■■■■■▒  ■■■■■■▒▒▒  
+ ▒■■     ▒▒ ■■   ■■▒ ■■■■  ■■■■▒■■    ▒▒   ■■    ■■▒▒■■ ▒  ■■ ■■     ▒  ■■   ■■▒ 
+ ▒■■   ■■■▒ ■■■■■■■▒ ■■▒■■■■ ■■▒■■■■■ ▒▒   ■■    ■■▒ ■■ ▒  ■■ ■■■■■  ▒  ■■■■■■▒▒  
+ ▒■■    ■■▒ ■■   ■■▒ ■■▒▒■■  ■■▒■■    ▒▒   ■■    ■■▒ ■■    ■■ ■■     ▒▒ ■■   ■■▒ 
+ ▒▒■■■■■■▒  ■■   ■■▒ ■■▒▒    ■■▒■■■■■■■▒    ■■■■■■▒▒  ■■■■■■  ■■■■■■■▒▒ ■■   ■■▒  
+  ▒▒     ▒  ▒     ▒▒  ▒▒    ▒▒▒  ▒▒  ▒             ▒   ▒▒▒            ▒        ▒▒
+  ▒▒     ▒  ▒     ▒▒  ▒▒    ▒ ▒  ▒   ▒             ▒   ▒ ▒            ▒          ▒
+▒  ▒        ▒      ▒   ▒    ▒ ▒  ▒   ▒             ▒     ▒            ▒  
+");
+
+            Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine(reason);
 

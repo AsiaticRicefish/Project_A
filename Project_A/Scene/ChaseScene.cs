@@ -174,7 +174,7 @@ namespace Project_A.Scene
                 {
                     if (Game.Player.ExitKey == false && Game.Player.position.x == 62 && Game.Player.position.y == 13)
                     {
-                        Util.Print("카드키가 필요합니다", ConsoleColor.Red, 1000);
+                        Util.Print("열쇠가 필요합니다", ConsoleColor.Red, 1000);
                         return;
                     }
                     interaction.Interact(Game.Player);

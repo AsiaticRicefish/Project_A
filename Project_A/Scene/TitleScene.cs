@@ -13,13 +13,21 @@ namespace Project_A.Scene
 
         public override void Render()
         {
-            Console.WriteLine("************************************");
-            Console.WriteLine("*           병원 탈출하기          *");
-            Console.WriteLine("************************************");
-            Console.WriteLine("");
-            Console.WriteLine("1. 게임시작");
-            Console.Write("2. 게임종료");
+            Console.ForegroundColor = ConsoleColor.Red;
 
+            Console.WriteLine(@"
+■■    ■■ ■■■    ■■ ■■■■■■  ■■■■■■  ■■      ■■ ■■■■■■■ ■■      ■■  ■■■    ■■■■■■   ■■      ■■■■■■
+■■    ■■ ■■■■   ■■ ■■   ■■ ■■      ■■      ■■ ■■       ■■    ■■  ■  ■    ■■   ■■  ■■      ■■
+■■    ■■ ■■ ■■  ■■ ■■ ■■■■ ■■■■    ■■      ■■ ■■■■■     ■■  ■■  ■    ■   ■■ ■■■■  ■■      ■■■■
+■■    ■■ ■■  ■■ ■■ ■■   ■■ ■■      ■■      ■■ ■■         ■  ■  ■■■■■■■■  ■■   ■■  ■■      ■■
+ ■■■■■■  ■■   ■■■■ ■■■■■■  ■■■■■■  ■■■■■■■ ■■ ■■■■■■■     ■■  ■■      ■■ ■■■■■■■  ■■■■■■■ ■■■■■■
+");
+
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("                     낯선 방에서 눈을 떴다. 이곳은 병원인가, 지옥인가...\n");
+            Console.WriteLine("                                 [1번  눌러서 시작하기]");
+            Console.WriteLine("                                 [2번  눌러서 종료하기]");
         }
 
         public override void Input()

@@ -119,7 +119,7 @@ namespace Project_A
             {
                 case ConsoleKey.Y:
                     selectItem.Use();
-                    Util.PressAnyKey($"{selectItem.name}을/를 목에 겁니다");
+                    Util.PressAnyKey($"{selectItem.name}을/를 사용합니다.");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;
@@ -132,17 +132,23 @@ namespace Project_A
 
         public void PrintAll()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("***************************************************************");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("● 현재 가지고 있는 아이템");
+            Console.ResetColor();
             if (items.Count == 0)
             {
                 Console.WriteLine(" Empty");
             }
             for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {items[i].name}\n{items[i].description}");
+                Console.WriteLine($"{i + 1}. {items[i].name}\n\n{items[i].description}");
             }
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("***************************************************************");
+            Console.ResetColor();
         }
     }
 }

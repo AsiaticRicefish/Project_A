@@ -18,7 +18,6 @@ namespace Project_A.Scene
 
         public override void Render()
         {
-            Console.WriteLine("당신은 낡은 병원에서 깨어났습니다.");
             Console.WriteLine("1. 복도로 나간다");
             Console.WriteLine("2. 침대 밑을 확인한다");
         }

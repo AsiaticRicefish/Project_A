@@ -27,13 +27,25 @@ namespace Project_A.Scene
         {
             Util.Print("이 병원 간호사의 일기장인 모양이다", ConsoleColor.White, 3000);
             Util.Print("일기장을 천천히 읽어보았다", ConsoleColor.White, 3000);
+            Console.Clear();
             Util.Print("\"드디어 오늘 결심한 날이다...\"", ConsoleColor.White, 3000);
             Console.Clear();
             Util.Print("모두에게 복수할 수 있는 날...", ConsoleColor.Red, 5000);
             Console.Clear();
-            Util.Print("갑자기 조명이 꺼진다.", ConsoleColor.Red, 3000);
+            
+            for (int i = 0; i < 20; i++)
+            {
+                Util.Print("죽인다", ConsoleColor.DarkRed, 100);
+            }
+            Util.Print("죽인다", ConsoleColor.DarkRed, 1000);
+            Console.Clear();
+
+            Util.Print("갑자기 조명이 꺼진다.", ConsoleColor.White, 3000);
+            Console.Clear();
             Util.Print("\"무슨 일이지?\"", ConsoleColor.White, 3000);
+            Console.Clear();
             Util.Print("누군가 다가온다", ConsoleColor.White, 2000);
+            Console.Clear();
             Util.Print("나는 본능적으로 숨었다", ConsoleColor.White, 7000);
             Console.Clear();
 
