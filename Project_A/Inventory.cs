@@ -56,14 +56,8 @@ namespace Project_A
                     case "UseMenu":
                         UseMenu();
                         break;
-                    case "DropMenu":
-                        DropMenu();
-                        break;
                     case "UseConfirm":
                         UseConfirm();
-                        break;
-                    case "DropConfirm":
-                        DropConfirm();
                         break;
                 }
             }
@@ -73,8 +67,7 @@ namespace Project_A
         {
             PrintAll();
             Console.WriteLine("1. 사용하기");
-            Console.WriteLine("2. 버리기");
-            Console.WriteLine("3. 뒤로가기");
+            Console.WriteLine("2. 뒤로가기");
 
             ConsoleKey input = Console.ReadKey(true).Key;
             switch (input)
@@ -83,9 +76,6 @@ namespace Project_A
                     stack.Push("UseMenu");
                     break;
                 case ConsoleKey.D2:
-                    stack.Push("DropMenu");
-                    break;
-                case ConsoleKey.D3:
                 case ConsoleKey.Escape:
                     stack.Pop();
                     break;
@@ -118,31 +108,6 @@ namespace Project_A
             }
         }
 
-        private void DropMenu()
-        {
-            PrintAll();
-            Console.WriteLine("버릴 아이템을 선택하세요");
-            Console.WriteLine("ESC을 눌러 뒤로가기");
-
-            ConsoleKey input = Console.ReadKey(true).Key;
-            if (input == ConsoleKey.Escape)
-            {
-                stack.Pop();
-            }
-            else
-            {
-                int select = (int)input - (int)ConsoleKey.D1;
-                if (select < 0 || items.Count <= select)
-                {
-                    Util.PressAnyKey("범위 내의 아이템을 선택하세요.");
-                }
-                else
-                {
-                    selectIndex = select;
-                    stack.Push("UseConfirm");
-                }
-            }
-        }
 
         private void UseConfirm()
         {
@@ -155,25 +120,6 @@ namespace Project_A
                 case ConsoleKey.Y:
                     selectItem.Use();
                     Util.PressAnyKey($"{selectItem.name}을/를 목에 겁니다");
-                    RemoveItem(selectItem);
-                    stack.Pop();
-                    break;
-                case ConsoleKey.N:
-                    stack.Pop();
-                    break;
-            }
-        }
-
-        private void DropConfirm()
-        {
-            Item selectItem = items[selectIndex];
-            Console.WriteLine("{0}을/를 버리시겠습니까? (Y/N)", selectItem.name);
-
-            ConsoleKey input = Console.ReadKey(true).Key;
-            switch (input)
-            {
-                case ConsoleKey.Y:
-                    Util.PressAnyKey($"{selectItem.name}을/를 버렸습니다.");
                     RemoveItem(selectItem);
                     stack.Pop();
                     break;

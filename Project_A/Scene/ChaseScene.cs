@@ -95,6 +95,7 @@ namespace Project_A.Scene
             }
 
             gameObjects = new List<Interaction>();
+            gameObjects.Add(new Place("TwoCorridor", ConsoleColor.DarkGreen, '←', new Position(1, 1)));
             gameObjects.Add(new Place("Exit", ConsoleColor.DarkGreen, '?', new Position(62, 13)));
             gameObjects.Add(new Place("Trap", ConsoleColor.DarkGreen, '?', new Position(34, 5)));
             gameObjects.Add(new Place("Trap2", ConsoleColor.DarkGreen, '?', new Position(28, 11)));
@@ -171,7 +172,7 @@ namespace Project_A.Scene
             {
                 if (Game.Player.position.x == interaction.position.x && Game.Player.position.y == interaction.position.y)
                 {
-                    if (Game.Player.ExitKey == false)
+                    if (Game.Player.ExitKey == false && Game.Player.position.x == 62 && Game.Player.position.y == 13)
                     {
                         Util.Print("카드키가 필요합니다", ConsoleColor.Red, 1000);
                         return;

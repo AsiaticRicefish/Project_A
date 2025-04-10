@@ -12,8 +12,8 @@ namespace Project_A.Items
     {
         public OutsideKey(ConsoleColor color, char symbol, Position position) : base(color, symbol, position)
         {
-            name = "카드키";
-            description = "카드 형식의 마스터키이다... 여러 방을 돌아다닐 수 있을 것이다";
+            name = "정문 열쇠";
+            description = "정문 열쇠인 것 같다... 이것만 있으면 밖으로 나갈 수 있을 지도?";
         }
 
         public override void Use()

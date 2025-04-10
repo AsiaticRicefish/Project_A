@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_A.GameObjects
 {
-    public class Place : Interaction  // 맵에서 장소 상호작용 구현 (그 장소로 들어갈 수 있도록)
+    public class Place : Interaction
     {
         private string scenes;
 

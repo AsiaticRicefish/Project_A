@@ -10,16 +10,16 @@ namespace Project_A.Scene
     {
         string[] openBook = new string[]
        {
-            "         .--.        ",                    
+            "         .--.        ",
             "      .\"     \".     ",
             "    /  ⊙     ‡  \\     ",
             "   /   ●          \\   ",
-            "  |    ●           |   ",          
+            "  |    ●           |   ",
             "  |      ___       |    ",
             "  |     (___)      |    ",
             "   \\              /     ",
             "    \\           /      ",
-            "     `.       .'        ",           
+            "     `.       .'        ",
        };
 
 
@@ -37,6 +37,7 @@ namespace Project_A.Scene
             Util.Print("나는 본능적으로 숨었다", ConsoleColor.White, 7000);
             Console.Clear();
 
+
             Console.ForegroundColor = ConsoleColor.DarkRed;
             foreach (string line in openBook)
             {
@@ -44,8 +45,10 @@ namespace Project_A.Scene
             }
             Console.ResetColor();
 
-            Console.WriteLine();
-            Util.Print("으악!!!!!!!!!!!!", ConsoleColor.White, 5000);
+            Util.Print(" ", ConsoleColor.White, 3000);
+            Console.Clear();
+
+            Util.Print("으악!!!!!!!!!", ConsoleColor.White, 3000);
             Console.Clear();
             Util.Print("그 상태에서 바로 칼에 찔렸다", ConsoleColor.DarkRed, 5000);
             Console.Clear();
@@ -67,7 +70,7 @@ namespace Project_A.Scene
         {
             Console.ReadKey(true);
         }
-   
+
         public override void Update()
         {
 
@@ -77,6 +80,6 @@ namespace Project_A.Scene
             Game.GameOver("사망하셨습니다...\n\n사망 : 수상한 물건을 조사할 때는 신중히 결정하십시오.");
         }
 
-     
+
     }
 }

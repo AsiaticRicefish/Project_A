@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Project_A
 {
-    public class Player // 게임 플레이어에 관한 설정
+    public class Player
     {
-        // 이동 기능
+      
         public Position position;
         private Inventory inventory;
         public Inventory Inventory { get { return inventory; } }
-        public bool[,] map;  // 플레이어가 맵을 뚫고 지나가는 부분을 처리
+        public bool[,] map;
 
 
         private bool flashLight;
@@ -75,9 +75,9 @@ namespace Project_A
             }
         }
 
-        public void Move(ConsoleKey input) // 캐릭터 움직임 구현
+        public void Move(ConsoleKey input) 
         {
-            Position targetPos = position; // 플레이어 이동하고자 하는 위치
+            Position targetPos = position; 
 
             switch (input)
             {
@@ -99,7 +99,7 @@ namespace Project_A
                     break;
             }
 
-            if (map[targetPos.y, targetPos.x] == true) // 뚫려있는 경우 움직이도록
+            if (map[targetPos.y, targetPos.x] == true)
             {
                 position = targetPos;
             }

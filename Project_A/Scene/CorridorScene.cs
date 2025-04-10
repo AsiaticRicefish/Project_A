@@ -66,12 +66,12 @@ namespace Project_A.Scene
         {
             PrintMap();
 
-            foreach (Interaction interaction in gameObjects) // 모든 게임 오브젝트 맵에 그리기
+            foreach (Interaction interaction in gameObjects)
             {
                 interaction.Print();
             }
 
-            Game.Player.Print();  // 플레이어 출력
+            Game.Player.Print();
 
 
             Console.SetCursorPosition(0, map.GetLength(0) + 2);
@@ -105,7 +105,7 @@ namespace Project_A.Scene
 
         private void PrintMap()
         {
-            Console.SetCursorPosition(0, 0); // 처음으로 위치시킴
+            Console.SetCursorPosition(0, 0);
 
             for (int y = 0; y < map.GetLength(0); y++)
             {
