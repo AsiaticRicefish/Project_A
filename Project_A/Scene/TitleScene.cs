@@ -8,8 +8,15 @@ namespace Project_A.Scene
 {
     public class TitleScene : BaseScene
     {
+        
+
         private static bool gameEnd;
         private ConsoleKey input;
+
+        public TitleScene()
+        {
+            name = "Title";
+        }
 
         public override void Render()
         {
